@@ -1,0 +1,54 @@
+##A simulated cash register that tracks the item count
+# and the total price
+# and clear everything after done
+class CashRegister:
+    ## Adds an item to this cash register
+    ## price: the price of the item
+    def __init__(self):
+        self._itemCount = 0
+        self._totalPrice = 0.0
+        #initialization, the first def of class should always be __init__
+        #why _itemCount again? why "?"
+    def addItem(self, price):
+        assert price >= 0
+        self._itemCount = self._itemCount + 1
+        self._totalPrice = self._totalPrice + price
+        ## track each item, count and price
+        #data needed: total, count
+
+    def addItems(self, quantity, price):
+        assert quantity >= 2
+        for i in range(quantity):
+            self.addItem(price)
+        #in case of multiple items
+        #one method needs to call another method on the same obj
+        #you buy 3 yogurts instead of 1
+
+    def getTotal(self):
+        return self._totalPrice
+        ##sum up the total price
+        #data needed: total
+
+    def getCount(self):
+        return self._itemCount
+        ##count how many items
+        #data needed: count
+
+    def clear(self):
+        self._itemCount = 0
+        self._totalPrice = 0.0
+        ##clear and reset to 0
+        #data needed: total, count
+
+
+register1 = CashRegister()
+
+#Constructs a CashRegister object
+register1.addItem(3.0)
+register1.addItem(4.5)
+ct = register1.getCount()
+pr = register1.getTotal()
+print(ct,"Items",pr,"euros")
+register1.clear()
+
+#build an interactive prog to allow multiple items like a cashier
